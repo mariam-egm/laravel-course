@@ -18,8 +18,8 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::get('/posts', 'Api\PostsController@index')->middleware('auth:api');
-Route::get('/posts/{post}', 'Api\PostsController@show');
-Route::post('/posts', 'Api\PostsController@store');
+Route::get('/posts/{post}', 'Api\PostsController@show')->middleware('auth:api');
+Route::post('/posts', 'Api\PostsController@store')->middleware('auth:api');
 Route::get('ay-7aga', function () {
     return 'blablablbalbal';
 });
