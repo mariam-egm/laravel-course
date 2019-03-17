@@ -15,6 +15,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
+
 Route::group(['middleware'=>'auth'], function () {
     Route::get('/posts', 'PostsController@index')
         ->name('posts.index');
@@ -35,3 +37,5 @@ Route::group(['middleware'=>'auth'], function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('login/github', 'Auth\LoginController@redirectToProvider');
+Route::get('login/github/callback', 'Auth\LoginController@handleProviderCallback');

@@ -14,9 +14,8 @@ class PostResource extends JsonResource
      */
     public function toArray($request)
     {
-        // dd($this->user); only one user
         return [
-            'id' => $this->id,
+            'post_id' => $this->id,
             'title' => $this->title,
             'description' => $this->description,
             'created_at' => $this->created_at->toDateString(),
